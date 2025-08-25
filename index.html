@@ -1,34 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv='cache-control' content="no-cache, no-store, must-revalidate"> 
-    <meta http-equiv='expires' content='0'> 
-    <meta http-equiv='pragma' content='no-cache'>
-    <title>Resume - Vishal Rajput</title>
-    <style>
-        *{
-            border:0;
-            margin:0;
-        }
-    </style>
-
-    <script type="text/javascript">
-        function getUrlPath()
-        {
-            return "https:///resume/resume.pdf?" + new Date().getTime();
-        }
-    </script>
-</head>
-<body>
-    <div style="height: 100vh;">
-        <iframe src="" width="100%" height="100%" id="resume" onload="this.onload=null; this.src=getUrlPath();">
-    </div>
-</body>
-</html> -->
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -161,6 +131,160 @@
     <script>
       // Fallback for browsers that don't support PDF viewing
       document.getElementById("fallback-download").href = getPdfUrl();
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="cache-control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>Resume - Vishal Rajput</title>
+    <style>
+      * {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .header h1 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+      .header p {
+        color: #666;
+        font-size: 16px;
+      }
+      .pdf-container {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .pdf-iframe {
+        width: 100%;
+        height: 800px;
+        border: none;
+      }
+      .download-btn {
+        display: inline-block;
+        background: #007bff;
+        color: white;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 6px;
+        margin: 10px;
+        transition: background 0.3s;
+      }
+      .download-btn:hover {
+        background: #0056b3;
+      }
+      .error-message {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        background: #f8f9fa;
+        border-radius: 6px;
+        margin: 20px 0;
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+        .pdf-iframe {
+          height: 600px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Vishal Rajput - Resume</h1>
+        <p>Full Stack Developer | React.js | Node.js | JavaScript</p>
+        <a
+          href="./resume.pdf"
+          id="download-link"
+          class="download-btn"
+          download="Vishal_Rajput_Resume.pdf"
+        >
+          📄 Download PDF
+        </a>
+      </div>
+
+      <div class="pdf-container">
+        <iframe 
+          id="resume" 
+          class="pdf-iframe" 
+          src="./resume.pdf"
+          title="Vishal Rajput Resume"
+          onload="handlePdfLoad()"
+          onerror="handlePdfError()">
+          <div class="error-message">
+            <p>Your browser does not support PDF viewing.</p>
+            <a href="./resume.pdf" class="download-btn">Download the PDF</a>
+          </div>
+        </iframe>
+      </div>
+    </div>
+
+    <script>
+      function handlePdfLoad() {
+        console.log('PDF loaded successfully');
+      }
+
+      function handlePdfError() {
+        console.log('Error loading PDF');
+        const iframe = document.getElementById('resume');
+        iframe.style.display = 'none';
+        
+        const container = document.querySelector('.pdf-container');
+        container.innerHTML = `
+          <div class="error-message">
+            <h3>PDF not available for viewing</h3>
+            <p>The resume PDF is being generated. Please try refreshing the page in a few minutes.</p>
+            <a href="./resume.pdf" class="download-btn">Try Download</a>
+          </div>
+        `;
+      }
+
+      // Check if PDF exists
+      fetch('./resume.pdf')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('PDF not found');
+          }
+          return response;
+        })
+        .catch(error => {
+          console.log('PDF not found, showing error message');
+          handlePdfError();
+        });
     </script>
   </body>
 </html>
