@@ -1,8 +1,6 @@
 %-------------------------
 % Resume in Latex
-% Author : Jake Gutierrez
-% Based off of: https://github.com/sb2nov/resume
-% License : MIT
+% Updated for Vishal Rajput
 %------------------------
 
 \documentclass[letterpaper,11pt]{article}
@@ -12,7 +10,6 @@
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
@@ -28,25 +25,15 @@
 \usepackage{xcolor}
 \hypersetup{colorlinks,urlcolor=blue}
 
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
 \usepackage{charter}
 
-
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Adjust margins
+% Margins
 \addtolength{\oddsidemargin}{-0.6in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.19in}
@@ -54,188 +41,121 @@
 \addtolength{\textheight}{1.4in}
 
 \urlstyle{same}
-
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Sections formatting
+% Section format
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-% Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
 
-%-------------------------
 % Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
-
-\newcommand{\achievementItem}[1]{
-  \item\small{
-    {#1 \vspace{-6pt}}
-  }
-}
-
-\newcommand{\classesList}[4]{
-    \item\small{
-        {#1 #2 #3 #4 \vspace{-2pt}}
-  }
-}
-
+\newcommand{\resumeItem}[1]{\item\small{#1 \vspace{-2pt}}}
+\newcommand{\achievementItem}[1]{\item\small{#1 \vspace{-6pt}}}
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
-    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+  \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{\small #2} \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
 }
-
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
 \newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+  \item
+  \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & \textbf{\small #2} \\
+  \end{tabular*}\vspace{-7pt}
 }
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\justify \begin{itemize} \vspace{-2pt}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-1pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 
 %-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%
 
 \begin{document}
 
 %----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
-
 \begin{center}
-    {\Huge \scshape Jai Kumar Dewani} \\ \vspace{1pt}
-    % 123 Street Name, Town, State 12345 \\ 
-    \vspace{5pt}
-    \small \raisebox{-0.1\height}\faPhone\ 9340422023 ~ 
-    \raisebox{-0.2\height}\faEnvelope\ \href{mailto:jai.dewani.99@gmail.com}{ jai.dewani.99@gmail.com} ~ 
-    \raisebox{-0.2\height}\faLinkedin\ \href{https://www.linkedin.com/in/jai-dewani/}{ linkedin.com/in/jai-dewani}  ~
-    \raisebox{-0.2\height}\faGithub\ \href{https://github.com/jai-dewani}{ github.com/jai-dewani}
-    \vspace{-8pt}
+    {\Huge \scshape Vishal Rajput} \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ +91 9644272681 ~ 
+    \raisebox{-0.2\height}\faEnvelope\ \href{mailto:vishalrajput15817@gmail.com}{vishalrajput15817@gmail.com} ~ 
+    \raisebox{-0.2\height}\faLinkedin\ \href{https://linkedin.com/in/vishal-rajput-7b421a203}{linkedin.com/in/vishal-rajput} ~
+    \raisebox{-0.2\height}\faGithub\ \href{https://github.com/1235vishal}{github.com/1235vishal} ~
+    \raisebox{-0.2\height}\faGlobe\ \href{https://vishdev1235.netlify.app}{vishdev1235.netlify.app}
 \end{center}
 
+%-----------SUMMARY-----------
+\section{Professional Summary}
+Full Stack Developer with \textbf{1+ years of experience} in building and deploying scalable web applications using React.js, Node.js, Express.js, MySQL, and MongoDB. Skilled in cloud deployment (AWS, Vercel, Netlify, cPanel) and payment gateway integrations (Razorpay). Proven ability to deliver automation tools and user-focused solutions that enhance efficiency, engagement, and business growth.
 
-%-----------EDUCATION-----------
+%-----------EXPERIENCE-----------
 \section{Experience}
-  \resumeSubHeadingListStart
+\resumeSubHeadingListStart
 
-    \resumeSubheading
-      {Carl Zeiss - Vision Care R\&D and Technologies}{July 2022 -- Present}
-      {Design Engineer}{Bengaluru, Karnataka, India}
-      % \vspace{-8pt}
-      \resumeItemListStart
-        % \resumeItem{}
-        \resumeItem{Owned the product and lead the development of the Visual Acuity testing module, driving successful \textbf{market release}}
-        \resumeItem{Assumed a leadership role within the team, working alongside them to successfully deliver VISUCORE Release 1.1}
-        \resumeItem{Collaborated with hiring managers to successfully recruit top-tier entry-level and experienced developers, enhancing the talent pool for our team and VTS division}
-        \resumeItem{Enforced atomic operations  to streamline development and reduce cognitive load}
-        \resumeItem{Designed a queuing mechanism in the response handler, \textbf{reducing click-to-response time by 40\%} during high-frequency interactions}
-        \resumeItem{Migrated product from .NET Framework 4.8 to .NET 8, enhancing performance, future-proofing development, and eliminating security vulnerabilities}
-        \resumeItem{Engineered an interop wrapper around C++ driver DLLs to bridge hardware-level integrations ensured reliable cross-language communication and reduced dev effort by 30\%.}
-      \resumeItemListEnd
+\resumeSubheading
+  {AKP Build And Gain Pvt Ltd}{Oct 2023 -- Present}
+  {Full Stack Development Engineer I (Contract)}{Remote}
+  \resumeItemListStart
+    \resumeItem{Delivered \textbf{5+ client web solutions} including booking apps, dashboards, and corporate websites.}
+    \resumeItem{Built a \textbf{rent management \& billing system} with Razorpay integration, reducing manual effort by 70\%.}
+    \resumeItem{Automated WhatsApp rent notifications with Puppeteer, increasing tenant engagement by 50\%.}
+    \resumeItem{Optimized database queries and backend APIs, improving response times by 40\%.}
+  \resumeItemListEnd
 
-    \vspace{3pt}
-    
-    \resumeSubheading
-      {Carl Zeiss - Vision Care R\&D and Technologies }{June 2021 - June 2022}
-      {Software Engineer}{Bengaluru, Karnataka, India}
-      % \vspace{-8pt}
-      \resumeItemListStart
-        \resumeItem{Enhanced team agility by refining hardware mocking to minimize dependence on physical devices.}
-        \resumeItem{Improved code quality and security through PR checks, static analyzers, and adherence to Roslyn's best practices.}
-        \resumeItem{Aligned cross-functional teams to define and seamlessly integrate API requirements, ensuring clean and extensible code}
-        \resumeItem{Integrate gRPC to facilitate IPC mitigating coupling and optimize parallel development across services}
-      \resumeItemListEnd
-    
-  \resumeSubHeadingListEnd
-
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {International Institute of Information Technology, Naya Raipur}{August '17 -- June '21}
-      {Bachelor of Technology in Computer Science}{Naya Raipur, Chhattisgarh India}
-  \resumeSubHeadingListEnd
-
+\resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
 \section{Projects}
-    \vspace{-2pt}
-    \resumeSubHeadingListStart
-        \resumeProjectHeading
-            {\textbf{VISUCORE 500} $|$ \emph{C\#, Angular}  $|$ \href{https://www.zeiss.com/vision-care/int/eye-care-professionals/equipment/refraction/combined-refraction-unit.html}{Zeiss VISUCORE 500}}{Jan 2021 - Current}
-            \resumeItemListStart
-                \resumeItem{Owned the development of visual acuity testing module for market releases - R1 and R1.1}
-                \resumeItem{Collaborated with Product team to transfer Refraction module and reduce turn around time by enhancing \textbf{performance of workflow by 28\%} through restructuring the application response keeping asynchronous design principles at the center}
-            \resumeItemListEnd
-        \resumeProjectHeading
-            {\textbf{VISUSCREEN 100/500} $|$ \emph{C\#, HTML, CSS, JS}  $|$ \href{https://www.zeiss.com/vision-care/int/eye-care-professionals/equipment/refraction/subjective-refraction-unit.html}{Zeiss VISUSCREEN 100/500}}{June 2023 - August 2023}
-            \resumeItemListStart
-                \resumeItem{Designed and implemented a lock-and-release mechanism to enforce mutual exclusion protocol to critical communication channels, enhancing system stability}
-                \resumeItem{Authored comprehensive system integration documentation to enable seamless software releases}
-            \resumeItemListEnd
-        \resumeProjectHeading
-            {\textbf{FunMark} $|$ \emph{Python} $|$ \href{https://github.com/jai-dewani/fun-mark}{GitHub}}{May 2020} 
-            \resumeItemListStart
-                \resumeItem{Developed a minimal-overhead wrapper to benchmark and visually function performance}
-                \resumeItem{Released on PyPi package manager to be easily accessible with pip with currently over 7K downloads}
-            \resumeItemListEnd 
-    \resumeSubHeadingListEnd
+\resumeSubHeadingListStart
+  \resumeProjectHeading
+    {\textbf{PG Booking Website} $|$ \emph{React, Node.js, Express, MySQL, Puppeteer, Razorpay API} $|$ \href{https://shivshaktipg.com}{shivshaktipg.com}}{}
+    \resumeItemListStart
+      \resumeItem{Built a complete PG booking platform with live map search, secure payments, dashboards, and WhatsApp automation.}
+    \resumeItemListEnd
 
-%
-%-----------PROGRAMMING SKILLS-----------
+  \resumeProjectHeading
+    {\textbf{Acharya Brahaspati Trust} $|$ \emph{React, Node.js, Express, Razorpay API} $|$ \href{https://acharyabrahaspatitrust.org}{acharyabrahaspatitrust.org}}{}
+    \resumeItemListStart
+      \resumeItem{Developed a responsive NGO site with donation gateway, event showcase, and informational pages.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Trisect Global} $|$ \emph{React, Node.js, Express, MySQL} $|$ \href{https://trisectglobal.com}{trisectglobal.com}}{}
+    \resumeItemListStart
+      \resumeItem{Created a consultancy website with services overview, testimonials, and dynamic contact form.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Lakshmi Narain College of Technology \& Science}{2022 -- 2026}
+    {B.Tech – Computer Science \& Engineering}{Bhopal, India}
+\resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
 \section{Technical Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    {\item{
-     \textbf{Languages \& Frameworks}{: C\#, .NET, Angular, JavaScript, Python} \\
-     \vspace{1pt}
-     \textbf{Developer Tools}{: Azure, MSBuild, MySQL, SonarQube, Blackduck, IRIUS Risk Docker, CI/CD, Git} \\
-     \vspace{1pt}
-     \textbf{Technologies}{: .NET, ASP.NET WPF, gRPC, Node.js, Angular, React} \\
-    }}
- \end{itemize}
- \vspace{-16pt}
-
-
-
-%-----------INVOLVEMENT---------------
-\section{ACADEMIC ACHIEVEMENTS \& EXTRA-CURRICULAR}
-
-\begin{itemize}[leftmargin=0.2in]
-  \achievementItem{Contributed to open-source tools like Excalidraw, PowerToys}
-  \achievementItem{Organized Coding Dojos between Indian and German colleges to foster collaborative hacking culture}
-  \achievementItem{\textbf{Mentored and Judged over 100+ teams} across nationwide hackathons like HackCBS 4.0, HacckOn 2.0 and DotSlash 4.0}
-  \achievementItem{\textbf{Co-founded}  the  first  technical  club  at  IIIT-NR,  organized  various  events, talks and hackathons to  promote competitive programming and development while improve the coding environment of the Institute.}
-  % \achievementItem{Ranked \textbf{115\textsuperscript{th}} Nation-wide in Google HashCode, out of 10724 teams}
-  \achievementItem{Qualified ACM-ICPC 2019 \& 2020 in Kanpur(\textbf{rank 63}), Kharagpur(\textbf{rank 81}), Amritapuri(\textbf{rank 37}) and Gwalior regions}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item{
+    \textbf{Languages:} JavaScript, Java, SQL \\
+    \textbf{Frameworks \& Libraries:} React.js, Next.js, Node.js, Express.js, REST APIs \\
+    \textbf{Databases:} MySQL, MongoDB \\
+    \textbf{Tools \& Platforms:} Git/GitHub, AWS, Docker, Vercel, Netlify, cPanel, aPanel \\
+    \textbf{Other Skills:} UI/UX Design, Deployment, Automation (Puppeteer), Payment Integrations
+  }
 \end{itemize}
 
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+\begin{itemize}[leftmargin=0.15in]
+  \achievementItem{Delivered \textbf{10+ production-ready client projects} deployed on AWS, Netlify, and Vercel.}
+  \achievementItem{Implemented automation workflows reducing client operational workload by up to 60\%.}
+  \achievementItem{Contributed to open-source projects on GitHub with 50+ stars.}
+\end{itemize}
 
 \end{document}
