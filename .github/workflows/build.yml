@@ -1,44 +1,61 @@
-name: Compile and upload résumé PDF
+name: Build Resume and Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
     paths:
       - "resume.tex"
       - "index.html"
       - ".github/workflows/**"
   pull_request:
-    branches:
-      - main
+    branches: ["main"]
     paths:
       - "resume.tex"
       - "index.html"
       - ".github/workflows/**"
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build_latex:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
+        uses: actions/checkout@v4
 
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: resume.tex
 
-      - name: Post Processing
+      - name: Prepare deployment files
         run: |
-          mkdir build
-          cp *.pdf build/
-          cp index.html build/
+          mkdir -p _site
+          cp *.pdf _site/
+          cp index.html _site/
+          cp .nojekyll _site/ || true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "_site"
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: build
-          clean: true
+        id: deployment
+        uses: actions/deploy-pages@v4
