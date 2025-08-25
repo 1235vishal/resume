@@ -134,7 +134,7 @@
     </script>
   </body>
 </html> -->
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -285,6 +285,104 @@
           console.log('PDF not found, showing error message');
           handlePdfError();
         });
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="cache-control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>Vishal Rajput - Resume</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .pdf-iframe {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        display: block;
+      }
+
+      .error-fallback {
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        background: #f8f9fa;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+        color: #666;
+      }
+
+      .error-fallback.show {
+        display: flex;
+      }
+
+      .error-fallback a {
+        color: #007bff;
+        text-decoration: none;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe
+      id="resume"
+      class="pdf-iframe"
+      src="./resume.pdf"
+      title="Vishal Rajput Resume"
+    >
+    </iframe>
+
+    <div id="error-fallback" class="error-fallback">
+      <p>Unable to display PDF in browser.</p>
+      <a href="./resume.pdf" target="_blank">Open PDF in new tab</a>
+    </div>
+
+    <script>
+      // Handle PDF loading errors
+      const iframe = document.getElementById("resume");
+      const errorFallback = document.getElementById("error-fallback");
+
+      // Check if PDF exists and handle errors
+      fetch("./resume.pdf")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("PDF not found");
+          }
+          // PDF exists, iframe should load it
+        })
+        .catch((error) => {
+          // Hide iframe and show error fallback
+          iframe.style.display = "none";
+          errorFallback.classList.add("show");
+        });
+
+      // Handle iframe load errors
+      iframe.onerror = function () {
+        iframe.style.display = "none";
+        errorFallback.classList.add("show");
+      };
     </script>
   </body>
 </html>
